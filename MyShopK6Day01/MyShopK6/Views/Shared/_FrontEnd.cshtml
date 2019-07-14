@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta name="description" content="Trang bán hàng" />
+    <meta name="keywords" content="dienthoai, nhatnghe mobile" />
+    <!-- Favicons Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <title>@ViewBag.Title</title>
+    <!--Import CSS-->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/simple-line-icons.css" rel="stylesheet" />
+    <link href="~/css/pe-icon-7-stroke.min.css" rel="stylesheet" />
+    <link href="~/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/css/owl.transitions.css" rel="stylesheet" />
+    <link href="~/css/flexslider.css" rel="stylesheet" />
+    <link href="~/css/jquery-ui.css" rel="stylesheet" />
+    <link href="~/css/revolution-slider.css" rel="stylesheet" />
+    <link href="~/css/quick_view_popup.css" rel="stylesheet" />
+    <link href="~/css/blog.css" rel="stylesheet" />
+    <link href="~/css/shortcode.css" rel="stylesheet" />
+    <link href="~/css/shortcodes/shortcodes.css" rel="stylesheet" />
+    <link href="~/css/shortcodes/featured-box.css" rel="stylesheet" />
+    <link href="~/css/shortcodes/pricing-table.css" rel="stylesheet" />
+    <link href="~/css/shortcodes/tooltip.css" rel="stylesheet" />
+    <link href="~/css/shortcodes/post.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/responsive.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="page" style="min-height:800px;">
+        <!-- Header -->
+        <header>
+            @await Html.PartialAsync("_MyHeader")
+        </header>
+        <!-- end header -->
+        @await Html.PartialAsync("_HorizontalMenu")
+
+        <!-- Breadcrumbs -->
+        @RenderSection("Breadcrumbs", required: false)
+        <!-- /Breadcrumbs -->
+
+        <section class="main-container">
+            @RenderBody()
+            @RenderSection("MenuLeft", required: false)
+        </section>
+
+        <!-- Footer -->
+        @await Html.PartialAsync("_MyFooter")
+        <!-- /Footer -->
+    </div>
+
+    <!--Chèn JS-->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/mobile-menu.js"></script>
+    <script src="~/js/jquery-ui.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/revolution-slider.js"></script>
+</body>
+</html>
