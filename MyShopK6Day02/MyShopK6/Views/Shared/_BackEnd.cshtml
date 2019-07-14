@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyShop K6 Admin - @ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/AdminStyle.css" rel="stylesheet" />
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link href="~/lib/fontawesome-free-5.9.0-web/css/all.css" rel="stylesheet" />
+    <script src="~/lib/fontawesome-free-5.9.0-web/js/all.js"></script>
+    <!--Sweet Alert 2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.13.4/dist/sweetalert2.all.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">MyShop</a>
+
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Admin" asp-controller="HangHoa">Trang chủ</a>
+                </li>
+                
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                        Quản lý
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Tin tức</a>
+                        <a class="dropdown-item" href="#">Loại tin</a>
+                        <a class="dropdown-item" href="#">Chủng loại</a>
+                        <a class="dropdown-item" asp-area="Admin" asp-controller="HangHoa" asp-action="Index">Hàng hóa</a>
+                        <a class="dropdown-item" href="#">Người dùng</a>
+                        <a class="dropdown-item" href="#">Quảng cáo</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                        Thống kê
+                    </a>
+                    <div class="dropdown-menu pl-2 pt-2">
+                        <div class="media-heading">Kiểm kê hàng tồn</div>
+                        <a class="dropdown-item" href="#">Theo loại</a>
+                        <a class="dropdown-item" href="#">Theo hãng</a>
+                        <div class="media-heading">Thống kê doanh số</div>
+                        <a class="dropdown-item" href="#">Theo từng mặt hàng</a>
+                        <a class="dropdown-item" href="#">Theo từng loại hàng</a>
+                        <a class="dropdown-item" href="#">Theo từng hãng</a>
+                        <a class="dropdown-item" href="#">Theo từng khách hàng</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Theo từng năm</a>
+                        <a class="dropdown-item" href="#">Theo từng quý</a>
+                        <a class="dropdown-item" href="#">Theo từng tháng</a>
+                    </div>
+
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                        Tài khoản
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Đăng nhập</a>
+                        <a class="dropdown-item" href="#">Đăng ký</a>
+                        <a class="dropdown-item" href="#">Đổi mật khẩu</a>                  <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Phân quyền</a>
+                        <a class="dropdown-item" href="#">Quản lý Tài khoản</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <img src="~/images/vit.gif" />
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <img src="~/images/eng.gif" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="p-4">
+            @RenderBody()
+        </div>
+        <footer class="text-center p-4 text-danger bg-light">Bản quyền thuộc về</footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+﻿@model IEnumerable<MyShopK6.Models.HangHoa>
+
+@{
+    ViewData["Title"] = "Hàng hóa";
+}
+
+<h2>Danh sách Hàng hóa</h2>
+<div class="text-right mb-2">
+    <a asp-action="Create" class="btn btn-success">Tạo mới</a>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Hinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenHh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Loai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThuongHieu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/Hinh/HangHoa/@item.Hinh" class="img-height-100px" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenHh)
+                </td>
+                <td class="text-right">
+                    @item.DonGia.ToVND()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Loai.TenLoai)
+                </td>
+                <td>@item.ThuongHieu.MaTh</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MaHh" class="btn btn-primary">Sửa</a> |
+                    <a asp-action="Details" asp-route-id="@item.MaHh">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.MaHh">Delete</a> |
+                    <button type="button" data-mahh="@item.MaHh" data-tenhh="@item.TenHh" class="btn btn-danger xoahh">Xóa</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    $(function () {
+        $(".xoahh").click(function () {
+            var mahh = $(this).attr("data-mahh");
+            var tenhh = $(this).attr("data-tenhh");
+            //alert("Xóa " + tenhh);
+            Swal.fire({
+                title: 'Bạn chắc xóa?',
+                html: "Bạn thực sự muốn xóa <b>" +tenhh+"</b>",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Hủy bỏ',
+                confirmButtonText: 'Xóa ngay'
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
+            })
+        });
+    });
+</script>

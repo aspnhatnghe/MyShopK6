@@ -1,0 +1,26 @@
+﻿@model MySelectList<Loai>
+
+@{
+    var dsLoai = Model;
+    var dsLoaiCha = dsLoai.Data.Where(p => p.MaLoaiCha == null).ToList();
+}
+<select name="MaLoai" class="form-control">
+    @foreach (var lo in dsLoaiCha)
+    {
+        var dsLoaiCon = dsLoai.Data.Where(p => p.MaLoaiCha == lo.MaLoai);
+        <optgroup label="@lo.TenLoai">
+            @foreach (var loCon in dsLoaiCon)
+            {
+                <option value="@loCon.MaLoai">@loCon.TenLoai</option>
+            }
+        </optgroup>
+    }
+</select>
+<script>
+    $(function(){
+        @if (Model.Selected.HasValue)
+        {
+            @:$("select[name='MaLoai']").val("@Model.Selected.Value");
+        }
+    });
+</script>
