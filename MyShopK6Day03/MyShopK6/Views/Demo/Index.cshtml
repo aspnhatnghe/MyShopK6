@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using MyShopK6.Helper;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Demo Session</h2>
+<a asp-action="ClearSession">Clear</a>
+<a asp-action="SetSession">Set</a>
+@{
+    var hoTen = Context.Session.GetString("HoTen");
+    var hsd = Context.Session.GetInt32("HSD");
+    var thuongHieu = Context.Session.GetObject<ThuongHieu>("ThuongHieu");
+}
+
+<div>Họ tên: @hoTen - @hsd</div>
+@if (thuongHieu != null)
+{
+    <div>
+        @thuongHieu.MaTh - @thuongHieu.TenThuongHieu
+    </div>
+}

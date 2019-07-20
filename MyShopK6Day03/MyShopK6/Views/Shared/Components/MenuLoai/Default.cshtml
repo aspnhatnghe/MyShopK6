@@ -1,0 +1,23 @@
+﻿@*File ~/Views/Shared/Components/MenuLoai/Default.cshtml*@
+@model IEnumerable<Loai>
+@{
+    var dsLoaiCha = Model.Where(p => p.MaLoaiCha == null);
+}
+
+<ul class="menu-items col-xs-12">
+    @foreach (var lo in dsLoaiCha)
+    {
+        var dsLoaiCon = Model.Where(p => p.MaLoaiCha == lo.MaLoai);
+        <li class="menu-item depth-1 menucol-1-3 ">
+            <div class="title title_font"> <a href="#">@lo.TenLoai</a></div>
+            <ul class="submenu">
+                @foreach (var loc in dsLoaiCon)
+                {
+                    <li class="menu-item">
+                        <div class="title"> <a asp-controller="HangHoa" asp-action="Index" asp-route-id="@loc.MaLoai">@loc.TenLoai</a></div>
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+</ul>

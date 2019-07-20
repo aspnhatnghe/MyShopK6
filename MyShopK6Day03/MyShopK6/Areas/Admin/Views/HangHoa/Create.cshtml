@@ -1,0 +1,68 @@
+﻿@model MyShopK6.Models.HangHoa
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Tạo mới Hàng hóa</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaLoai" class="control-label"></label>
+                @*<select asp-for="MaLoai" class ="form-control" asp-items="ViewBag.MaLoai"></select>*@
+
+                @await Html.PartialAsync("_SelectLoai", (MySelectList<Loai>)ViewBag.Loai)
+            </div>
+            <div class="form-group">
+                <label asp-for="MaTh" class="control-label"></label>
+                <select asp-for="MaTh" class ="form-control" asp-items="ViewBag.ThuongHieu"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenHh" class="control-label"></label>
+                <input asp-for="TenHh" class="form-control" />
+                <span asp-validation-for="TenHh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hinh" class="control-label"></label>
+                <input name="fHinh" type="file" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="MoTa" class="control-label"></label>
+                <textarea asp-for="MoTa" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="MoTa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DonGia" class="control-label"></label>
+                <input asp-for="DonGia" class="form-control" />
+                <span asp-validation-for="DonGia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SoLuong" class="control-label"></label>
+                <input asp-for="SoLuong" class="form-control" />
+                <span asp-validation-for="SoLuong" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Tạo mới" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-dark">Quay lại</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/12.3.0/classic/ckeditor.js"></script>
+<script>
+    $(function () {
+        ClassicEditor
+            .create(document.querySelector('#MoTa'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    });
+</script>
