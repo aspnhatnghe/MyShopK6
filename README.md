@@ -2,6 +2,7 @@
 Đồ án ASP.NET Core khóa 6
 
 ## Buổi 04 (21/07/2019)
+* Thiết kế Layout hiển thị chi tiết sản phẩm
 * Sử dụng Session để làm giỏ hàng
 
 ## Buổi 03 (20/07/2019)
