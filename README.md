@@ -1,6 +1,10 @@
 # MyShopK6
 Đồ án ASP.NET Core khóa 6
 
+## Buổi 05 (27/07/2019)
+* Sử dụng AJAX tìm kiếm sản phẩm, xử lý giỏ hàng
+* SEO Url friendly
+
 ## Buổi 04 (21/07/2019)
 * Thiết kế Layout hiển thị chi tiết sản phẩm
 * Sử dụng Session để làm giỏ hàng
