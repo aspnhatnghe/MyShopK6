@@ -1,6 +1,10 @@
 # MyShopK6
 Đồ án ASP.NET Core khóa 6
 
+## Buổi 07 (03/08/2019)
+* Demo API
+* Thiết kế trang HTML CRUD Loại gọi API
+
 ## Buổi 06 (28/07/2019)
 * Thiết kế các chức năng thông tin Khách hàng (đăng nhập, đăng ký, ...)
 * Một số lưu ý khi dùng Identity:
